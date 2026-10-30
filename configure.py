@@ -1602,6 +1602,8 @@ def execute_qmake(options):
 
     configs = []
     configs.append('debug' if options.debug_mode else 'release')
+    if options.static_linking:
+        configs.append('static')
     spec_table = {
             'linux':'linux-g++',
             'freebsd':'freebsd-clang',
@@ -1806,9 +1808,10 @@ def set_bzip2_variables(options, template_vars, cc):
         template_vars['bzip2_cxxflags'] =  cc.add_include_dir_option + bzip2_dir
         template_vars['bzip2_ldflags'] = os.path.join(bzip2_dir, 'libbz2.a')
     else:
+        pkg_static = ['--static'] if options.static_linking else []
         if try_external_command([options.pkg_config_binary,'--exists','bzip2']).success:
-            template_vars['bzip2_cxxflags'] = external_command([options.pkg_config_binary, '--cflags', 'bzip2'])
-            template_vars['bzip2_ldflags'] = external_command([options.pkg_config_binary, '--libs', 'bzip2'])
+            template_vars['bzip2_cxxflags'] = external_command([options.pkg_config_binary, '--cflags'] + pkg_static + ['bzip2'])
+            template_vars['bzip2_ldflags'] = external_command([options.pkg_config_binary, '--libs'] + pkg_static + ['bzip2'])
         else:
             template_vars['bzip2_ldflags'] = "-lbz2"
 
@@ -1833,8 +1836,9 @@ def set_zlib_variables(options, template_vars, cc):
             template_vars['zlib_makefile'] = ''
 
     else:
-        template_vars['zlib_cxxflags'] = external_command([options.pkg_config_binary, '--cflags', 'zlib'])
-        template_vars['zlib_ldflags'] = external_command([options.pkg_config_binary, '--libs', 'zlib'])
+        pkg_static = ['--static'] if options.static_linking else []
+        template_vars['zlib_cxxflags'] = external_command([options.pkg_config_binary, '--cflags'] + pkg_static + ['zlib'])
+        template_vars['zlib_ldflags'] = external_command([options.pkg_config_binary, '--libs'] + pkg_static + ['zlib'])
 
 def get_botan_include_dir():
     return os.path.join(get_project_dir(), 'deps', 'botan', 'build', 'include', 'public')
@@ -1842,8 +1846,9 @@ def get_botan_include_dir():
 def set_botan_variables(options, template_vars, cc):
     template_vars['build_botan'] = options.build_botan
     if not options.build_botan:
-        botan_cxxflags = external_command([options.pkg_config_binary, '--cflags', 'botan-3'])
-        botan_ldflags = external_command([options.pkg_config_binary, '--libs', 'botan-3'])
+        pkg_static = ['--static'] if options.static_linking else []
+        botan_cxxflags = external_command([options.pkg_config_binary, '--cflags'] + pkg_static + ['botan-3'])
+        botan_ldflags = external_command([options.pkg_config_binary, '--libs'] + pkg_static + ['botan-3'])
 
         # remove all existing flags to avoid repetition
         all_flags = []
