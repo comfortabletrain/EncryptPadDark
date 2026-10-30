@@ -1,0 +1,528 @@
+{
+  "ar_command": "ar",
+  "ar_options": "crs",
+  "ar_output_to": "",
+  "arch": "x86_64",
+  "base_dir": ".",
+  "bindir": "/usr/local/bin",
+  "botan_cxxflags": "-I/usr/include/botan-3 \n",
+  "botan_ldflags": "-lbotan-3",
+  "build_botan": false,
+  "build_bzip2": false,
+  "build_dir": "build",
+  "build_qt_ui": true,
+  "build_zlib": false,
+  "bzip2_cxxflags": "\n",
+  "bzip2_ldflags": "-lbz2 \n",
+  "cc_compile_debug_flags": "-g -momit-leaf-frame-pointer -fPIC -D_FILE_OFFSET_BITS=64",
+  "cc_compile_flags": "-O3 -momit-leaf-frame-pointer -fPIC -D_FILE_OFFSET_BITS=64",
+  "cc_compile_opt_flags": "-O3 -momit-leaf-frame-pointer -fPIC -D_FILE_OFFSET_BITS=64",
+  "cc_lang_flags": "-std=c++20 -D_REENTRANT",
+  "cc_macro": "GCC",
+  "cc_sysroot": "",
+  "cc_warning_flags": "-Wall -Wextra -Wpedantic -Wstrict-aliasing -Wcast-align -Wmissing-declarations -Wpointer-arith -Wcast-qual -Wzero-as-null-pointer-constant -Wnon-virtual-dtor",
+  "cli_build_info": [
+    {
+      "isa_flags": "",
+      "obj": "build/obj/cli/cli_get_passphrase.o",
+      "src": "src/cli/get_passphrase.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/cli/cli_main.o",
+      "src": "src/cli/main.cpp"
+    }
+  ],
+  "cli_exe": "/home/daren/EncryptPad/bin/release/encryptcli",
+  "cli_objs": [
+    "build/obj/cli/cli_get_passphrase.o",
+    "build/obj/cli/cli_main.o"
+  ],
+  "cli_srcs": [
+    "src/cli/get_passphrase.cpp",
+    "src/cli/main.cpp"
+  ],
+  "cliobj_dir": "build/obj/cli",
+  "command_line": "configure.py",
+  "cpu_family": "x86",
+  "cpu_features": [
+    "aesni",
+    "avx2",
+    "bmi2",
+    "rdrand",
+    "rdseed",
+    "sha",
+    "sse2",
+    "sse41",
+    "sse42",
+    "ssse3"
+  ],
+  "cpu_is_64bit": true,
+  "cxx": "g++",
+  "cxx_abi_debug_flags": "-fstack-protector -m64 -pthread",
+  "cxx_abi_flags": "-fstack-protector -m64 -pthread",
+  "cxx_abi_opt_flags": "-fstack-protector -m64 -pthread",
+  "dash_c": "-c",
+  "dash_o": "-o ",
+  "debug_mode": false,
+  "default_targets": "libs cli qt_ui",
+  "deps_build_info": [
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_build.o",
+      "src": "deps/stlplus/portability/build.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_debug.o",
+      "src": "deps/stlplus/portability/debug.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_dprintf.o",
+      "src": "deps/stlplus/portability/dprintf.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_dynaload.o",
+      "src": "deps/stlplus/portability/dynaload.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_file_system.o",
+      "src": "deps/stlplus/portability/file_system.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_inf.o",
+      "src": "deps/stlplus/portability/inf.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_ip_sockets.o",
+      "src": "deps/stlplus/portability/ip_sockets.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_fixes.o",
+      "src": "deps/stlplus/portability/portability_fixes.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_subprocesses.o",
+      "src": "deps/stlplus/portability/subprocesses.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_tcp_sockets.o",
+      "src": "deps/stlplus/portability/tcp_sockets.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_time.o",
+      "src": "deps/stlplus/portability/time.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_udp_sockets.o",
+      "src": "deps/stlplus/portability/udp_sockets.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_version.o",
+      "src": "deps/stlplus/portability/version.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_portability_wildcard.o",
+      "src": "deps/stlplus/portability/wildcard.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_subsystems_cli_parser.o",
+      "src": "deps/stlplus/subsystems/cli_parser.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_subsystems_ini_manager.o",
+      "src": "deps/stlplus/subsystems/ini_manager.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_subsystems_library_manager.o",
+      "src": "deps/stlplus/subsystems/library_manager.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_subsystems_message_handler.o",
+      "src": "deps/stlplus/subsystems/message_handler.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/deps/stlplus_subsystems_timer.o",
+      "src": "deps/stlplus/subsystems/timer.cpp"
+    }
+  ],
+  "deps_dir": "/home/daren/EncryptPad/deps",
+  "deps_objs": [
+    "build/obj/deps/stlplus_portability_build.o",
+    "build/obj/deps/stlplus_portability_debug.o",
+    "build/obj/deps/stlplus_portability_dprintf.o",
+    "build/obj/deps/stlplus_portability_dynaload.o",
+    "build/obj/deps/stlplus_portability_file_system.o",
+    "build/obj/deps/stlplus_portability_inf.o",
+    "build/obj/deps/stlplus_portability_ip_sockets.o",
+    "build/obj/deps/stlplus_portability_fixes.o",
+    "build/obj/deps/stlplus_portability_subprocesses.o",
+    "build/obj/deps/stlplus_portability_tcp_sockets.o",
+    "build/obj/deps/stlplus_portability_time.o",
+    "build/obj/deps/stlplus_portability_udp_sockets.o",
+    "build/obj/deps/stlplus_portability_version.o",
+    "build/obj/deps/stlplus_portability_wildcard.o",
+    "build/obj/deps/stlplus_subsystems_cli_parser.o",
+    "build/obj/deps/stlplus_subsystems_ini_manager.o",
+    "build/obj/deps/stlplus_subsystems_library_manager.o",
+    "build/obj/deps/stlplus_subsystems_message_handler.o",
+    "build/obj/deps/stlplus_subsystems_timer.o"
+  ],
+  "deps_srcs": [
+    "deps/stlplus/portability/build.cpp",
+    "deps/stlplus/portability/debug.cpp",
+    "deps/stlplus/portability/dprintf.cpp",
+    "deps/stlplus/portability/dynaload.cpp",
+    "deps/stlplus/portability/file_system.cpp",
+    "deps/stlplus/portability/inf.cpp",
+    "deps/stlplus/portability/ip_sockets.cpp",
+    "deps/stlplus/portability/portability_fixes.cpp",
+    "deps/stlplus/portability/subprocesses.cpp",
+    "deps/stlplus/portability/tcp_sockets.cpp",
+    "deps/stlplus/portability/time.cpp",
+    "deps/stlplus/portability/udp_sockets.cpp",
+    "deps/stlplus/portability/version.cpp",
+    "deps/stlplus/portability/wildcard.cpp",
+    "deps/stlplus/subsystems/cli_parser.cpp",
+    "deps/stlplus/subsystems/ini_manager.cpp",
+    "deps/stlplus/subsystems/library_manager.cpp",
+    "deps/stlplus/subsystems/message_handler.cpp",
+    "deps/stlplus/subsystems/timer.cpp"
+  ],
+  "depsobj_dir": "build/obj/deps",
+  "encryptmsg_build_dir": "/home/daren/EncryptPad/deps/libencryptmsg",
+  "encryptmsg_cxxflags": "-I/home/daren/EncryptPad/deps/libencryptmsg/build/include",
+  "encryptmsg_ldflags": "/home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a",
+  "encryptmsg_target": "/home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a",
+  "endian": "little",
+  "exe_link_cmd": "$(LINKER) -Wl,-rpath=\\$$ORIGIN",
+  "include_paths": "-Ibuild/include -I/home/daren/EncryptPad/deps/libencryptmsg/build/include -I/home/daren/EncryptPad/build/include/internal -isystem /home/daren/EncryptPad/deps/stlplus/containers -isystem /home/daren/EncryptPad/deps/plog/include",
+  "includedir": "include",
+  "isa_build_info": [],
+  "ldflags": " ",
+  "lib_build_info": [
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/state_machine_state.o",
+      "src": "deps/state_machine/state.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/state_machine_state_graph.o",
+      "src": "deps/state_machine/state_graph.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/state_machine.o",
+      "src": "deps/state_machine/state_machine.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/state_machine_state_machine_interface.o",
+      "src": "deps/state_machine/state_machine_interface.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_algo_defaults.o",
+      "src": "src/back_end_src/algo_defaults.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_curl_loader.o",
+      "src": "src/back_end_src/curl_loader.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_decryption_state_debug.o",
+      "src": "src/back_end_src/decryption_state_debug.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_decryption_state_machine.o",
+      "src": "src/back_end_src/decryption_state_machine.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_diagnostic_log.o",
+      "src": "src/back_end_src/diagnostic_log.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_encryptmsg_version.o",
+      "src": "src/back_end_src/encryptmsg_version.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_encryptor.o",
+      "src": "src/back_end_src/encryptor.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_epad_result.o",
+      "src": "src/back_end_src/epad_result.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_epad_utilities.o",
+      "src": "src/back_end_src/epad_utilities.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_file_encryption.o",
+      "src": "src/back_end_src/file_encryption.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_file_helper.o",
+      "src": "src/back_end_src/file_helper.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_key_file_converter.o",
+      "src": "src/back_end_src/key_file_converter.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_key_generation.o",
+      "src": "src/back_end_src/key_generation.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_key_service.o",
+      "src": "src/back_end_src/key_service.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_key_service_key_provider.o",
+      "src": "src/back_end_src/key_service_key_provider.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_os_api.o",
+      "src": "src/back_end_src/os_api.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_packet_composer.o",
+      "src": "src/back_end_src/packet_composer.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_packet_stream.o",
+      "src": "src/back_end_src/packet_stream.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_packet_typedef.o",
+      "src": "src/back_end_src/packet_typedef.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_passphrase_generator.o",
+      "src": "src/back_end_src/passphrase_generator.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_repository.o",
+      "src": "src/back_end_src/repository.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_wad_reader_writer.o",
+      "src": "src/back_end_src/wad_reader_writer.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_win_file_reader.o",
+      "src": "src/back_end_src/win_file_reader.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/lib/back_end_src_x2_key_loader.o",
+      "src": "src/back_end_src/x2_key_loader.cpp"
+    }
+  ],
+  "lib_objs": [
+    "build/obj/lib/state_machine_state.o",
+    "build/obj/lib/state_machine_state_graph.o",
+    "build/obj/lib/state_machine.o",
+    "build/obj/lib/state_machine_state_machine_interface.o",
+    "build/obj/lib/back_end_src_algo_defaults.o",
+    "build/obj/lib/back_end_src_curl_loader.o",
+    "build/obj/lib/back_end_src_decryption_state_debug.o",
+    "build/obj/lib/back_end_src_decryption_state_machine.o",
+    "build/obj/lib/back_end_src_diagnostic_log.o",
+    "build/obj/lib/back_end_src_encryptmsg_version.o",
+    "build/obj/lib/back_end_src_encryptor.o",
+    "build/obj/lib/back_end_src_epad_result.o",
+    "build/obj/lib/back_end_src_epad_utilities.o",
+    "build/obj/lib/back_end_src_file_encryption.o",
+    "build/obj/lib/back_end_src_file_helper.o",
+    "build/obj/lib/back_end_src_key_file_converter.o",
+    "build/obj/lib/back_end_src_key_generation.o",
+    "build/obj/lib/back_end_src_key_service.o",
+    "build/obj/lib/back_end_src_key_service_key_provider.o",
+    "build/obj/lib/back_end_src_os_api.o",
+    "build/obj/lib/back_end_src_packet_composer.o",
+    "build/obj/lib/back_end_src_packet_stream.o",
+    "build/obj/lib/back_end_src_packet_typedef.o",
+    "build/obj/lib/back_end_src_passphrase_generator.o",
+    "build/obj/lib/back_end_src_repository.o",
+    "build/obj/lib/back_end_src_wad_reader_writer.o",
+    "build/obj/lib/back_end_src_win_file_reader.o",
+    "build/obj/lib/back_end_src_x2_key_loader.o"
+  ],
+  "lib_srcs": [
+    "deps/state_machine/state.cpp",
+    "deps/state_machine/state_graph.cpp",
+    "deps/state_machine/state_machine.cpp",
+    "deps/state_machine/state_machine_interface.cpp",
+    "src/back_end_src/algo_defaults.cpp",
+    "src/back_end_src/curl_loader.cpp",
+    "src/back_end_src/decryption_state_debug.cpp",
+    "src/back_end_src/decryption_state_machine.cpp",
+    "src/back_end_src/diagnostic_log.cpp",
+    "src/back_end_src/encryptmsg_version.cpp",
+    "src/back_end_src/encryptor.cpp",
+    "src/back_end_src/epad_result.cpp",
+    "src/back_end_src/epad_utilities.cpp",
+    "src/back_end_src/file_encryption.cpp",
+    "src/back_end_src/file_helper.cpp",
+    "src/back_end_src/key_file_converter.cpp",
+    "src/back_end_src/key_generation.cpp",
+    "src/back_end_src/key_service.cpp",
+    "src/back_end_src/key_service_key_provider.cpp",
+    "src/back_end_src/os_api.cpp",
+    "src/back_end_src/packet_composer.cpp",
+    "src/back_end_src/packet_stream.cpp",
+    "src/back_end_src/packet_typedef.cpp",
+    "src/back_end_src/passphrase_generator.cpp",
+    "src/back_end_src/repository.cpp",
+    "src/back_end_src/wad_reader_writer.cpp",
+    "src/back_end_src/win_file_reader.cpp",
+    "src/back_end_src/x2_key_loader.cpp"
+  ],
+  "libname": "back_end",
+  "libobj_dir": "build/obj/lib",
+  "library_target": "/home/daren/EncryptPad/build/libback_end.a",
+  "link_cmd": "$(CXX) -shared -fPIC -Wl,-soname,{soname_abi}",
+  "link_to": "-ldl -lm -lrt",
+  "linker": "$(CXX)",
+  "local_config": "",
+  "make_supports_phony": true,
+  "makefile_path": "build/../Makefile",
+  "mod_list": [
+    "back_end_src",
+    "portability",
+    "state_machine",
+    "subsystems"
+  ],
+  "module_defines": [
+    "back_end_src 20190126",
+    "portability 20190127",
+    "state_machine 20190126",
+    "subsystems 20190127"
+  ],
+  "mp_bits": 64,
+  "os": "linux",
+  "os_features": [
+    "clock_gettime",
+    "dev_random",
+    "filesystem",
+    "getauxval",
+    "posix1",
+    "posix_mlock",
+    "proc_fs",
+    "sockets",
+    "threads"
+  ],
+  "os_name": "linux",
+  "out_dir": ".",
+  "output_to_exe": "-o ",
+  "post_link_cmd": "",
+  "prefix": "/usr/local",
+  "python_exe": "python3",
+  "python_version": "3.13",
+  "qt_build_dir": "build/qt_build",
+  "shared_flags": "",
+  "src_dir": "./src",
+  "static_lib_name": "ororo",
+  "test_build_info": [
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_encryptor_tests.o",
+      "src": "src/test/encryptor_tests.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_file_encryption_tests.o",
+      "src": "src/test/file_encryption_tests.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_input_output_tests.o",
+      "src": "src/test/input_output_tests.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_key_generation_tests.o",
+      "src": "src/test/key_generation_tests.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_main.o",
+      "src": "src/test/main.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_packet_stream_tests.o",
+      "src": "src/test/packet_stream_tests.cpp"
+    },
+    {
+      "isa_flags": "",
+      "obj": "build/obj/test/test_passphrase_generator_test.o",
+      "src": "src/test/passphrase_generator_test.cpp"
+    }
+  ],
+  "test_exe": "/home/daren/EncryptPad/bin/release/encryptpad_test",
+  "test_objs": [
+    "build/obj/test/test_encryptor_tests.o",
+    "build/obj/test/test_file_encryption_tests.o",
+    "build/obj/test/test_input_output_tests.o",
+    "build/obj/test/test_key_generation_tests.o",
+    "build/obj/test/test_main.o",
+    "build/obj/test/test_packet_stream_tests.o",
+    "build/obj/test/test_passphrase_generator_test.o"
+  ],
+  "test_srcs": [
+    "src/test/encryptor_tests.cpp",
+    "src/test/file_encryption_tests.cpp",
+    "src/test/input_output_tests.cpp",
+    "src/test/key_generation_tests.cpp",
+    "src/test/main.cpp",
+    "src/test/packet_stream_tests.cpp",
+    "src/test/passphrase_generator_test.cpp"
+  ],
+  "testobj_dir": "build/obj/test",
+  "visibility_attribute": "",
+  "with_debug_asserts": false,
+  "zlib_cxxflags": "\n",
+  "zlib_ldflags": "-lz \n"
+}

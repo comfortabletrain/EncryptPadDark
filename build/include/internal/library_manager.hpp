@@ -1,0 +1,1 @@
+../../../deps/stlplus/subsystems/library_manager.hpp

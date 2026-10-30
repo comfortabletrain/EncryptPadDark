@@ -1,0 +1,12 @@
+
+release_major = 3
+release_minor = 4
+release_so_abi_rev = 4
+release_patch = 0
+
+release_suffix = ''
+
+# These are set by the distribution script
+release_vc_rev = 'git:afd43c536ff96e85d45837caa6f99125483c160a'
+release_datestamp = 20240408
+release_type = 'release'
