@@ -1,5 +1,10 @@
 ## Release Notes ##
 
+### EncryptPadDark (Fork)
+
+* Added dark theme and custom color theme support
+* Updated project metadata, about dialog, and links to reflect the EncryptPadDark fork (https://github.com/comfortabletrain/EncryptPadDark)
+
 ### Version 0.6.0.0
 
 * Support major version 3 of Botan

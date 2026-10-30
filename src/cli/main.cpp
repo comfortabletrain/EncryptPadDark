@@ -90,7 +90,7 @@ namespace
             "--log-file                            log file to output diagnotic information\n"
             "--log-severity                        log severity: verbose, debug, info, warning, error, fatal, none (default: warning)\n"
             "\n"
-            "Feedback: evpo.net/encryptpad\n"
+            "Feedback: https://github.com/comfortabletrain/EncryptPadDark\n"
             ;
 
 

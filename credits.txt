@@ -1,3 +1,7 @@
+comfortabletrain
+EncryptPadDark fork maintainer and dark theme support.
+https://github.com/comfortabletrain/EncryptPadDark
+
 Evgeny Pokhilko
 Original developer and maintainer.
 software@evpo.net

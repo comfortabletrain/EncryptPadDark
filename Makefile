@@ -19,7 +19,7 @@ EXE_LINK_CMD   = $(LINKER) -Wl,-rpath=\$$ORIGIN
 POST_LINK_CMD  = 
 
 LIB_LINKS_TO   = -ldl -lm -lrt
-EXE_LINKS_TO   = /home/daren/EncryptPad/build/libback_end.a
+EXE_LINKS_TO   = /home/tlc/EncryptPadDark/build/libback_end.a
 
 BUILD_FLAGS    = $(ABI_FLAGS) $(LANG_FLAGS) $(CXXFLAGS) $(WARN_FLAGS)
 TEST_BUILD_FLAGS = $(ABI_FLAGS) $(LANG_FLAGS) $(CXXFLAGS)
@@ -29,7 +29,7 @@ PREFIX = /usr/local
 BINDIR = /usr/local/bin
 SCRIPTS_DIR = scripts
 
-INCLUDE_PATHS = -Ibuild/include -I/home/daren/EncryptPad/deps/libencryptmsg/build/include -I/home/daren/EncryptPad/build/include/internal -isystem /home/daren/EncryptPad/deps/stlplus/containers -isystem /home/daren/EncryptPad/deps/plog/include
+INCLUDE_PATHS = -Ibuild/include -I/home/tlc/EncryptPadDark/deps/libencryptmsg/build/include -I/home/tlc/EncryptPadDark/build/include/internal -isystem /home/tlc/EncryptPadDark/deps/stlplus/containers -isystem /home/tlc/EncryptPadDark/deps/plog/include
 
 
 RELEASE=on
@@ -39,9 +39,9 @@ CONFIG_DIR=release
 all: libs cli qt_ui
 
 # Executable targets
-CLI           = /home/daren/EncryptPad/bin/release/encryptcli
-TEST          = /home/daren/EncryptPad/bin/release/encryptpad_test
-LIBRARIES     = /home/daren/EncryptPad/build/libback_end.a
+CLI           = /home/tlc/EncryptPadDark/bin/release/encryptcli
+TEST          = /home/tlc/EncryptPadDark/bin/release/encryptpad_test
+LIBRARIES     = /home/tlc/EncryptPadDark/build/libback_end.a
 
 cli: $(CLI)
 test: $(TEST)
@@ -62,9 +62,9 @@ botan_clean:
 botan_distclean:
 
 # EncryptMsg
-ENCRYPTMSG_TARGET = /home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a
-ENCRYPTMSG_BUILD_DIR = /home/daren/EncryptPad/deps/libencryptmsg
-ENCRYPTMSG_LDFLAGS = /home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a
+ENCRYPTMSG_TARGET = /home/tlc/EncryptPadDark/deps/libencryptmsg/build/libencryptmsg.a
+ENCRYPTMSG_BUILD_DIR = /home/tlc/EncryptPadDark/deps/libencryptmsg
+ENCRYPTMSG_LDFLAGS = /home/tlc/EncryptPadDark/deps/libencryptmsg/build/libencryptmsg.a
 $(ENCRYPTMSG_TARGET):
 	$(MAKE) -C $(ENCRYPTMSG_BUILD_DIR)
 
@@ -116,7 +116,7 @@ qt_ui_distclean:
 # Gtest build
 # ###########
 
-GTEST_DIR = /home/daren/EncryptPad/deps/gtest/googletest
+GTEST_DIR = /home/tlc/EncryptPadDark/deps/gtest/googletest
 GTEST_TARGET_DIR = build/gtest
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -203,7 +203,7 @@ $(TEST): $(LIBRARIES) $(TESTOBJS) $(GTEST) $(BOTAN_TARGET) $(ENCRYPTMSG_TARGET) 
 
 # Library targets
 
-/home/daren/EncryptPad/build/libback_end.a: $(LIBOBJS) $(DEPSOBJS)
+/home/tlc/EncryptPadDark/build/libback_end.a: $(LIBOBJS) $(DEPSOBJS)
 	$(AR) crs $@ $(LIBOBJS) $(DEPSOBJS)
 
 # Build Commands

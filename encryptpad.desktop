@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=EncryptPad
-Comment=Secure text editor and binary encryptor
+Name=EncryptPadDark
+Comment=Secure text editor and binary encryptor with dark mode support
 Icon=encryptpad
 Exec=encryptpad %f
 Categories=Utility;TextEditor;

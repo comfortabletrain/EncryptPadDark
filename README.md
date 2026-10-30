@@ -1,12 +1,16 @@
-Screenshots and tutorials are at [evpo.net/encryptpad/](http://evpo.net/encryptpad/)
-
-# EncryptPad
+# EncryptPadDark
 
 ![README.png](README.png)
 
 <div id="cutline"></div>
 
-EncryptPad is an application for viewing and editing symmetrically encrypted text. Using a simple and convenient graphical and command line interface, EncryptPad provides a tool for encrypting and decrypting binary files on disk while offering effective measures for protecting information, and it uses the most widely chosen quality file format **OpenPGP** [RFC 4880](https://tools.ietf.org/html/rfc4880). Unlike other OpenPGP software which main purpose is asymmetric encryption, the primary focus of EncryptPad is symmetric encryption.
+**EncryptPadDark** is a fork of [EncryptPad](https://www.evpo.net/encryptpad) by Evgeny Pokhilko, adding dark theme and customizable appearance support.
+
+GitHub Repository: [https://github.com/comfortabletrain/EncryptPadDark](https://github.com/comfortabletrain/EncryptPadDark)
+
+Screenshots and upstream tutorials are at [evpo.net/encryptpad/](http://evpo.net/encryptpad/).
+
+EncryptPadDark is an application for viewing and editing symmetrically encrypted text. Using a simple and convenient graphical and command line interface, EncryptPadDark provides a tool for encrypting and decrypting binary files on disk while offering effective measures for protecting information, and it uses the most widely chosen quality file format **OpenPGP** [RFC 4880](https://tools.ietf.org/html/rfc4880). Unlike other OpenPGP software which main purpose is asymmetric encryption, the primary focus of EncryptPadDark is symmetric encryption.
 
 ## Table of Contents
 
@@ -58,6 +62,7 @@ EncryptPad is an application for viewing and editing symmetrically encrypted tex
 
 ## Features
 
+* **Dark theme** and customizable theme appearances
 * **Symmetric** encryption
 * **Passphrase** protection
 * **Key file** protection
@@ -587,10 +592,11 @@ GNU General Public License for more details.
 
 ## Contact and feedback
 
-If your question is related to EncryptPad, send it to the mailing list: **encryptpad@googlegroups.com** linked to [the public discussion group](https://groups.google.com/d/forum/encryptpad).
+For issues, bug reports, and contributions regarding this fork (EncryptPadDark), please use GitHub:
+* Repository & Bug Tracker: [github.com/comfortabletrain/EncryptPadDark/issues](https://github.com/comfortabletrain/EncryptPadDark/issues)
 
-Bug tracker and contributions: [github.com/evpo/EncryptPad/issues](https://github.com/evpo/EncryptPad/issues)
-
-For other matters, please contact Evgeny Pokhilko **software@evpo.net**
-
-[http://www.evpo.net/encryptpad](http://www.evpo.net/encryptpad)
+For questions regarding upstream EncryptPad:
+* Original repository: [github.com/evpo/EncryptPad](https://github.com/evpo/EncryptPad)
+* Upstream website: [http://www.evpo.net/encryptpad](http://www.evpo.net/encryptpad)
+* Mailing list: **encryptpad@googlegroups.com** linked to [the public discussion group](https://groups.google.com/d/forum/encryptpad)
+* Evgeny Pokhilko: **software@evpo.net**

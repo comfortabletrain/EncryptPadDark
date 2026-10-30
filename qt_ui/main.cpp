@@ -252,7 +252,7 @@ int main(int argc, char *argv[])
         }
 
         app.setOrganizationName("Evpo"); //
-        app.setApplicationName("EncryptPad");
+        app.setApplicationName("EncryptPadDark");
 
         MainWindow mainWin;
         mainWin.setAutoThemeAppearance(app.getAutoThemeAppearance());

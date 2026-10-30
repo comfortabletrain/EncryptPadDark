@@ -773,15 +773,17 @@ void MainWindow::createNewKey()
 
 void MainWindow::about()
 {
-    QString encryptPadText = tr("<b>EncryptPad %1 Beta</b><br/><br/>"
-                "A minimalist secure text editor and file encryptor that implements "
+    QString encryptPadText = tr("<b>EncryptPadDark %1</b><br/><br/>"
+                "A minimalist secure text editor and file encryptor with dark mode support that implements "
                 "RFC 4880 Open PGP format: "
                 "symmetrically encrypted, compressed and integrity protected. "
                 "The editor can protect files with passphrases, key files or both.<br/><br/>"
-                "%2<br/>"
+                "Fork repository:<br/>"
+                "<a href=\"https://github.com/comfortabletrain/EncryptPadDark\">https://github.com/comfortabletrain/EncryptPadDark</a><br/><br/>"
+                "Based on EncryptPad by %2<br/>"
                 "GNU General Public License v2<br/><br/>"
-              ).arg(VER_PRODUCTVERSION_STR).arg(VER_LEGALCOPYRIGHT_STR) +
-            QString("<a href=\"https://www.evpo.net/encryptpad\">https://www.evpo.net/encryptpad</a>");
+                "Original project: <a href=\"https://www.evpo.net/encryptpad\">https://www.evpo.net/encryptpad</a>"
+              ).arg(VER_PRODUCTVERSION_STR).arg(VER_LEGALCOPYRIGHT_STR);
 
     QString libEncryptMsgText = tr(
                 "<b>%1</b>"
@@ -800,7 +802,7 @@ void MainWindow::about()
         .arg(EncryptPad::EncryptMsgCopyright().c_str()) +
             QString("<a href=\"https://www.evpo.net/libencryptmsg\">https://www.evpo.net/libencryptmsg</a>");
 
-    QMessageBox::about(this, tr("About EncryptPad"),
+    QMessageBox::about(this, tr("About EncryptPadDark"),
            encryptPadText +
            "<br>" +
            "<hr>" +

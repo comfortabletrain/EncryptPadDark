@@ -5,7 +5,7 @@ VPATH = $$PROJ/qt_ui
 LIBS += -L$$[QT_INSTALL_LIBS]
 QMAKE_RPATHDIR += $$[QT_INSTALL_LIBS]/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu
 
-EXE_LINKS_TO = /home/daren/EncryptPad/build/libback_end.a -ldl -lm -lrt
+EXE_LINKS_TO = /home/tlc/EncryptPadDark/build/libback_end.a -ldl -lm -lrt
 
 # botan
 BOTAN_LDFLAGS = -lbotan-3
@@ -16,8 +16,8 @@ LIBS += $$BOTAN_LDFLAGS
 LIBS += $$EXE_LINKS_TO
 
 # encryptmsg
-ENCRYPTMSG_LDFLAGS = /home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a
-ENCRYPTMSG_CXXFLAGS = -I/home/daren/EncryptPad/deps/libencryptmsg/build/include
+ENCRYPTMSG_LDFLAGS = /home/tlc/EncryptPadDark/deps/libencryptmsg/build/libencryptmsg.a
+ENCRYPTMSG_CXXFLAGS = -I/home/tlc/EncryptPadDark/deps/libencryptmsg/build/include
 LIBS += $$ENCRYPTMSG_LDFLAGS
 QMAKE_CXXFLAGS += $$ENCRYPTMSG_CXXFLAGS
 

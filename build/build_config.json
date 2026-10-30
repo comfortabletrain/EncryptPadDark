@@ -3,7 +3,7 @@
   "ar_options": "crs",
   "ar_output_to": "",
   "arch": "x86_64",
-  "base_dir": ".",
+  "base_dir": "",
   "bindir": "/usr/local/bin",
   "botan_cxxflags": "-I/usr/include/botan-3 \n",
   "botan_ldflags": "-lbotan-3",
@@ -33,7 +33,7 @@
       "src": "src/cli/main.cpp"
     }
   ],
-  "cli_exe": "/home/daren/EncryptPad/bin/release/encryptcli",
+  "cli_exe": "/home/tlc/EncryptPadDark/bin/release/encryptcli",
   "cli_objs": [
     "build/obj/cli/cli_get_passphrase.o",
     "build/obj/cli/cli_main.o"
@@ -163,7 +163,7 @@
       "src": "deps/stlplus/subsystems/timer.cpp"
     }
   ],
-  "deps_dir": "/home/daren/EncryptPad/deps",
+  "deps_dir": "/home/tlc/EncryptPadDark/deps",
   "deps_objs": [
     "build/obj/deps/stlplus_portability_build.o",
     "build/obj/deps/stlplus_portability_debug.o",
@@ -207,13 +207,13 @@
     "deps/stlplus/subsystems/timer.cpp"
   ],
   "depsobj_dir": "build/obj/deps",
-  "encryptmsg_build_dir": "/home/daren/EncryptPad/deps/libencryptmsg",
-  "encryptmsg_cxxflags": "-I/home/daren/EncryptPad/deps/libencryptmsg/build/include",
-  "encryptmsg_ldflags": "/home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a",
-  "encryptmsg_target": "/home/daren/EncryptPad/deps/libencryptmsg/build/libencryptmsg.a",
+  "encryptmsg_build_dir": "/home/tlc/EncryptPadDark/deps/libencryptmsg",
+  "encryptmsg_cxxflags": "-I/home/tlc/EncryptPadDark/deps/libencryptmsg/build/include",
+  "encryptmsg_ldflags": "/home/tlc/EncryptPadDark/deps/libencryptmsg/build/libencryptmsg.a",
+  "encryptmsg_target": "/home/tlc/EncryptPadDark/deps/libencryptmsg/build/libencryptmsg.a",
   "endian": "little",
   "exe_link_cmd": "$(LINKER) -Wl,-rpath=\\$$ORIGIN",
-  "include_paths": "-Ibuild/include -I/home/daren/EncryptPad/deps/libencryptmsg/build/include -I/home/daren/EncryptPad/build/include/internal -isystem /home/daren/EncryptPad/deps/stlplus/containers -isystem /home/daren/EncryptPad/deps/plog/include",
+  "include_paths": "-Ibuild/include -I/home/tlc/EncryptPadDark/deps/libencryptmsg/build/include -I/home/tlc/EncryptPadDark/build/include/internal -isystem /home/tlc/EncryptPadDark/deps/stlplus/containers -isystem /home/tlc/EncryptPadDark/deps/plog/include",
   "includedir": "include",
   "isa_build_info": [],
   "ldflags": " ",
@@ -421,7 +421,7 @@
   ],
   "libname": "back_end",
   "libobj_dir": "build/obj/lib",
-  "library_target": "/home/daren/EncryptPad/build/libback_end.a",
+  "library_target": "/home/tlc/EncryptPadDark/build/libback_end.a",
   "link_cmd": "$(CXX) -shared -fPIC -Wl,-soname,{soname_abi}",
   "link_to": "-ldl -lm -lrt",
   "linker": "$(CXX)",
@@ -462,7 +462,7 @@
   "python_version": "3.13",
   "qt_build_dir": "build/qt_build",
   "shared_flags": "",
-  "src_dir": "./src",
+  "src_dir": "src",
   "static_lib_name": "ororo",
   "test_build_info": [
     {
@@ -501,7 +501,7 @@
       "src": "src/test/passphrase_generator_test.cpp"
     }
   ],
-  "test_exe": "/home/daren/EncryptPad/bin/release/encryptpad_test",
+  "test_exe": "/home/tlc/EncryptPadDark/bin/release/encryptpad_test",
   "test_objs": [
     "build/obj/test/test_encryptor_tests.o",
     "build/obj/test/test_file_encryption_tests.o",

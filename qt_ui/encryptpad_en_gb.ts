@@ -552,7 +552,7 @@ Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About EncryptPad</source>
+        <source>About EncryptPadDark</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
