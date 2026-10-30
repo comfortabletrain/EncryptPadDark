@@ -28,19 +28,19 @@ jobs:
       - name: Setup MSYS2
         uses: msys2/setup-msys2@v2
         with:
-          msystem: MINGW64
+          msystem: UCRT64
           update: true
           install: >-
             git
             make
-            mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-qt6-base
-            mingw-w64-x86_64-qt6-svg
-            mingw-w64-x86_64-botan
-            mingw-w64-x86_64-zlib
-            mingw-w64-x86_64-bzip2
-            mingw-w64-x86_64-python
-            mingw-w64-x86_64-pkg-config
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-qt6-base
+            mingw-w64-ucrt-x86_64-qt6-svg
+            mingw-w64-ucrt-x86_64-libbotan
+            mingw-w64-ucrt-x86_64-zlib
+            mingw-w64-ucrt-x86_64-bzip2
+            mingw-w64-ucrt-x86_64-python
+            mingw-w64-ucrt-x86_64-pkg-config
 
       - name: Configure and Build
         shell: msys2 {0}
@@ -81,8 +81,8 @@ jobs:
 
           # Copy MinGW and dependency DLLs
           for dll in libbotan-3.dll libbz2-1.dll zlib1.dll libstdc++-6.dll libgcc_s_seh-1.dll libwinpthread-1.dll; do
-            if [ -f "/mingw64/bin/$dll" ]; then
-              cp "/mingw64/bin/$dll" EncryptPadDark-Windows-x64/
+            if [ -f "$MSYSTEM_PREFIX/bin/$dll" ]; then
+              cp "$MSYSTEM_PREFIX/bin/$dll" EncryptPadDark-Windows-x64/
             fi
           done
 
