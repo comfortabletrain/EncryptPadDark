@@ -34,7 +34,7 @@ jobs:
             git
             make
             mingw-w64-ucrt-x86_64-gcc
-            mingw-w64-ucrt-x86_64-qt5-static
+            mingw-w64-ucrt-x86_64-qt6-static
             mingw-w64-ucrt-x86_64-libbotan
             mingw-w64-ucrt-x86_64-zlib
             mingw-w64-ucrt-x86_64-bzip2
@@ -44,16 +44,22 @@ jobs:
       - name: Configure and Build
         shell: msys2 {0}
         run: |
-          export PATH="/ucrt64/qt5-static/bin:$PATH"
-          export PKG_CONFIG_PATH="/ucrt64/qt5-static/lib/pkgconfig:$PKG_CONFIG_PATH"
-          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt5-static/bin/qmake
+          echo -e "[Paths]\nPrefix = ..\nArchData = lib/qt6\nData = share/qt6" > /ucrt64/qt6-static/bin/qt.conf
+          if [ -d /ucrt64/qt6-static/lib/qt6/mkspecs ]; then
+            mkdir -p /ucrt64/qt6-static/mkspecs
+            cp -rn /ucrt64/qt6-static/lib/qt6/mkspecs/* /ucrt64/qt6-static/mkspecs/ || true
+          fi
+          export PATH="/ucrt64/qt6-static/bin:$PATH"
+          export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
+          export QMAKESPEC="/ucrt64/qt6-static/lib/qt6/mkspecs/win32-g++"
+          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake
           make -j$(nproc)
 
       - name: Run Unit Tests
         shell: msys2 {0}
         run: |
-          export PATH="/ucrt64/qt5-static/bin:$PATH"
-          export PKG_CONFIG_PATH="/ucrt64/qt5-static/lib/pkgconfig:$PKG_CONFIG_PATH"
+          export PATH="/ucrt64/qt6-static/bin:$PATH"
+          export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
           python3 configure.py --without-qt-ui --test --os mingw --cpu x86_64 --cc gcc --link-method copy --static
           make -j$(nproc)
           cd src/test
@@ -62,9 +68,10 @@ jobs:
       - name: Rebuild Release Target
         shell: msys2 {0}
         run: |
-          export PATH="/ucrt64/qt5-static/bin:$PATH"
-          export PKG_CONFIG_PATH="/ucrt64/qt5-static/lib/pkgconfig:$PKG_CONFIG_PATH"
-          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt5-static/bin/qmake
+          export PATH="/ucrt64/qt6-static/bin:$PATH"
+          export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
+          export QMAKESPEC="/ucrt64/qt6-static/lib/qt6/mkspecs/win32-g++"
+          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake
           make -j$(nproc)
 
       - name: Prepare Release Package

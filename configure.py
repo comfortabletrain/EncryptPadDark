@@ -1614,7 +1614,7 @@ def execute_qmake(options):
             }
 
     cmd = [options.qmake_bin, '-r']
-    spec_name = spec_table.get(options.os)
+    spec_name = os.environ.get('QMAKESPEC') or spec_table.get(options.os)
     if spec_name:
         cmd.append('-spec')
         cmd.append(spec_name)
