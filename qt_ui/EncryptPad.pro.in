@@ -33,7 +33,7 @@ LIBS += %{ldflags}
 win32 {
     CONFIG += no_lflags_merge
     static: QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
-    static: LIBS += -lharfbuzz -lgraphite2 -lbz2 -lusp10 -lsharpyuv -lSecur32 -lCrypt32 -lRpcrt4 -lOleAut32 -limm32 -lwinmm -ldwmapi -luxtheme -lversion -lwtsapi32
+    static: LIBS += -lws2_32 -lcrypt32 -liphlpapi -lnetapi32 -luserenv
 }
 
 QMAKE_CXXFLAGS += -DFAKEVIM_STATIC_DEFINE
