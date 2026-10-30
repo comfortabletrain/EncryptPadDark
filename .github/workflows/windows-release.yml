@@ -45,12 +45,20 @@ jobs:
       - name: Configure and Build
         shell: msys2 {0}
         run: |
-          # 1. Provide host build tools (uic, moc, rcc) from qt6-base to qt6-static/bin
+          # 1. Locate and copy host build tools (uic, moc, rcc, etc.) to qt6-static/bin
+          mkdir -p /ucrt64/qt6-static/bin
+          if [ -d /ucrt64/share/qt6/bin ]; then
+            cp -f /ucrt64/share/qt6/bin/*.exe /ucrt64/qt6-static/bin/ 2>/dev/null || true
+          fi
           for tool in uic.exe moc.exe rcc.exe; do
-            if [ -f "/ucrt64/bin/$tool" ]; then
-              cp -f "/ucrt64/bin/$tool" "/ucrt64/qt6-static/bin/"
+            tool_path=$(find /ucrt64 -name "$tool" 2>/dev/null | head -n 1)
+            if [ -n "$tool_path" ] && [ ! -f "/ucrt64/qt6-static/bin/$tool" ]; then
+              echo "Found $tool at $tool_path, copying to /ucrt64/qt6-static/bin/"
+              cp -f "$tool_path" /ucrt64/qt6-static/bin/
             fi
           done
+          echo "=== qt6-static/bin contents ==="
+          ls -la /ucrt64/qt6-static/bin/
 
           # 2. Configure qt.conf so qmake in qt6-static can resolve relative paths
           echo -e "[Paths]\nPrefix = ..\nArchData = share/qt6\nData = share/qt6\nPlugins = share/qt6/plugins" > /ucrt64/qt6-static/bin/qt.conf
@@ -65,7 +73,7 @@ jobs:
             cp -rn /ucrt64/qt6-static/share/qt6/plugins/* /ucrt64/qt6-static/plugins/ || true
           fi
 
-          export PATH="/ucrt64/qt6-static/bin:/ucrt64/bin:$PATH"
+          export PATH="/ucrt64/qt6-static/bin:/ucrt64/share/qt6/bin:/ucrt64/bin:$PATH"
           export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
           export QMAKESPEC="/ucrt64/qt6-static/share/qt6/mkspecs/win32-g++"
           python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake

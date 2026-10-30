@@ -33,8 +33,10 @@ LIBS += %{ldflags}
 win32 {
     CONFIG += no_lflags_merge
     static: QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
-    static: LIBS += -L$$[QT_INSTALL_PLUGINS]/platforms -L$$[QT_INSTALL_PLUGINS]/imageformats
-    static: LIBS += -lws2_32 -lcrypt32 -liphlpapi -lnetapi32 -luserenv -lversion -luxtheme -ldwmapi -lwinmm -limm32 -lOleAut32 -lole32 -lRpcrt4 -lSecur32 -lwtsapi32 -lshlwapi -ldxgi -ld3d11
+    static: LIBS += -L$$[QT_INSTALL_PLUGINS]/platforms -L/ucrt64/qt6-static/share/qt6/plugins/platforms -L/ucrt64/qt6-static/plugins/platforms
+    static: LIBS += -L$$[QT_INSTALL_PLUGINS]/imageformats -L/ucrt64/qt6-static/share/qt6/plugins/imageformats -L/ucrt64/qt6-static/plugins/imageformats
+    static: LIBS += -lharfbuzz -lgraphite2 -lfreetype -lpng16 -ljpeg -lzstd -lbrotlidec -lbrotlicommon -lpcre2-16
+    static: LIBS += -lws2_32 -lcrypt32 -liphlpapi -lnetapi32 -luserenv -lversion -luxtheme -ldwmapi -lwinmm -limm32 -lOleAut32 -lole32 -lRpcrt4 -lSecur32 -lwtsapi32 -lshlwapi -ldxgi -ld3d11 -lsetupapi -lcfgmgr32
 }
 
 QMAKE_CXXFLAGS += -DFAKEVIM_STATIC_DEFINE
