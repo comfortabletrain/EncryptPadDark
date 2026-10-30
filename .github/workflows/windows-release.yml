@@ -34,6 +34,7 @@ jobs:
             git
             make
             mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-qt6-base
             mingw-w64-ucrt-x86_64-qt6-static
             mingw-w64-ucrt-x86_64-libbotan
             mingw-w64-ucrt-x86_64-zlib
@@ -44,12 +45,27 @@ jobs:
       - name: Configure and Build
         shell: msys2 {0}
         run: |
-          echo -e "[Paths]\nPrefix = ..\nArchData = share/qt6\nData = share/qt6" > /ucrt64/qt6-static/bin/qt.conf
+          # 1. Provide host build tools (uic, moc, rcc) from qt6-base to qt6-static/bin
+          for tool in uic.exe moc.exe rcc.exe; do
+            if [ -f "/ucrt64/bin/$tool" ]; then
+              cp -f "/ucrt64/bin/$tool" "/ucrt64/qt6-static/bin/"
+            fi
+          done
+
+          # 2. Configure qt.conf so qmake in qt6-static can resolve relative paths
+          echo -e "[Paths]\nPrefix = ..\nArchData = share/qt6\nData = share/qt6\nPlugins = share/qt6/plugins" > /ucrt64/qt6-static/bin/qt.conf
+
+          # 3. Ensure mkspecs and plugins are accessible in both standard and isolated paths
           if [ -d /ucrt64/qt6-static/share/qt6/mkspecs ]; then
             mkdir -p /ucrt64/qt6-static/mkspecs
             cp -rn /ucrt64/qt6-static/share/qt6/mkspecs/* /ucrt64/qt6-static/mkspecs/ || true
           fi
-          export PATH="/ucrt64/qt6-static/bin:$PATH"
+          if [ -d /ucrt64/qt6-static/share/qt6/plugins ]; then
+            mkdir -p /ucrt64/qt6-static/plugins
+            cp -rn /ucrt64/qt6-static/share/qt6/plugins/* /ucrt64/qt6-static/plugins/ || true
+          fi
+
+          export PATH="/ucrt64/qt6-static/bin:/ucrt64/bin:$PATH"
           export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
           export QMAKESPEC="/ucrt64/qt6-static/share/qt6/mkspecs/win32-g++"
           python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake
@@ -58,7 +74,7 @@ jobs:
       - name: Run Unit Tests
         shell: msys2 {0}
         run: |
-          export PATH="/ucrt64/qt6-static/bin:$PATH"
+          export PATH="/ucrt64/qt6-static/bin:/ucrt64/bin:$PATH"
           export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
           python3 configure.py --without-qt-ui --test --os mingw --cpu x86_64 --cc gcc --link-method copy --static
           make -j$(nproc)
@@ -68,7 +84,7 @@ jobs:
       - name: Rebuild Release Target
         shell: msys2 {0}
         run: |
-          export PATH="/ucrt64/qt6-static/bin:$PATH"
+          export PATH="/ucrt64/qt6-static/bin:/ucrt64/bin:$PATH"
           export PKG_CONFIG_PATH="/ucrt64/qt6-static/lib/pkgconfig:$PKG_CONFIG_PATH"
           export QMAKESPEC="/ucrt64/qt6-static/share/qt6/mkspecs/win32-g++"
           python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake
