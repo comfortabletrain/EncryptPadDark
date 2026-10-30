@@ -34,7 +34,8 @@ jobs:
             git
             make
             mingw-w64-ucrt-x86_64-gcc
-            mingw-w64-ucrt-x86_64-qt6-static
+            mingw-w64-ucrt-x86_64-qt6-base
+            mingw-w64-ucrt-x86_64-qt6-svg
             mingw-w64-ucrt-x86_64-libbotan
             mingw-w64-ucrt-x86_64-zlib
             mingw-w64-ucrt-x86_64-bzip2
@@ -44,13 +45,13 @@ jobs:
       - name: Configure and Build
         shell: msys2 {0}
         run: |
-          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake
+          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy
           make -j$(nproc)
 
       - name: Run Unit Tests
         shell: msys2 {0}
         run: |
-          python3 configure.py --without-qt-ui --test --os mingw --cpu x86_64 --cc gcc --link-method copy --static
+          python3 configure.py --without-qt-ui --test --os mingw --cpu x86_64 --cc gcc --link-method copy
           make -j$(nproc)
           cd src/test
           ../../bin/release/encryptpad_test.exe
@@ -58,7 +59,7 @@ jobs:
       - name: Rebuild Release Target
         shell: msys2 {0}
         run: |
-          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy --static --qmake-bin=/ucrt64/qt6-static/bin/qmake
+          python3 configure.py --os mingw --cpu x86_64 --cc gcc --link-method copy
           make -j$(nproc)
 
       - name: Prepare Release Package
@@ -76,6 +77,29 @@ jobs:
           cp -r docs EncryptPadDark-Windows-x64/
           cp license.txt EncryptPadDark-Windows-x64/
           cp license_3rd_party.txt EncryptPadDark-Windows-x64/
+
+          # Deploy Qt runtime and plugins for full portability
+          if command -v windeployqt6 >/dev/null 2>&1; then
+            windeployqt6 --release --compiler-runtime EncryptPadDark-Windows-x64/encryptpad.exe
+          elif command -v windeployqt >/dev/null 2>&1; then
+            windeployqt --release --compiler-runtime EncryptPadDark-Windows-x64/encryptpad.exe
+          fi
+
+          # Recursively resolve and copy all MinGW, crypto, and runtime DLL dependencies
+          while true; do
+            added=0
+            for bin in EncryptPadDark-Windows-x64/*.exe EncryptPadDark-Windows-x64/*.dll EncryptPadDark-Windows-x64/*/*.dll; do
+              [ -f "$bin" ] || continue
+              for dll in $(ldd "$bin" 2>/dev/null | grep "$MSYSTEM_PREFIX/bin" | awk '{print $3}'); do
+                dll_name=$(basename "$dll")
+                if [ ! -f "EncryptPadDark-Windows-x64/$dll_name" ]; then
+                  cp "$dll" EncryptPadDark-Windows-x64/
+                  added=$((added + 1))
+                fi
+              done
+            done
+            [ "$added" -eq 0 ] && break
+          done
 
       - name: Create Zip Archive
         shell: pwsh
