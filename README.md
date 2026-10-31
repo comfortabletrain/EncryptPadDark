@@ -12,22 +12,17 @@ Screenshots and upstream tutorials are at [evpo.net/encryptpad/](http://evpo.net
 
 EncryptPadDark is an application for viewing and editing symmetrically encrypted text. Using a simple and convenient graphical and command line interface, EncryptPadDark provides a tool for encrypting and decrypting binary files on disk while offering effective measures for protecting information, and it uses the most widely chosen quality file format **OpenPGP** [RFC 4880](https://tools.ietf.org/html/rfc4880). Unlike other OpenPGP software which main purpose is asymmetric encryption, the primary focus of EncryptPadDark is symmetric encryption.
 
-## Key Differences from Upstream & 64-Bit Benefits
+## Key Differences from Upstream
 
-### Changes in EncryptPadDark
-* **Custom Appearance & Dark Theme Support**: Native dark mode styling and theme configuration across all editor and dialog windows.
-* **Native 64-Bit Architecture**: Unlike upstream Windows releases which are distributed as 32-bit (`i386`) binaries, EncryptPadDark is built natively for 64-bit (`x86_64`) Windows.
-* **Modernized CI/CD Pipeline**: Automated GitHub Actions workflows producing fully static, standalone releases (zero floating DLLs) linking Qt 6 and Botan 3.
+* **Custom Appearance & Dark Theme**: Built-in dark mode styling and customizable theme support across all editor and dialog windows.
+* **Native 64-Bit Architecture**: Unlike upstream Windows releases which target legacy 32-bit (`i386`), EncryptPadDark builds natively for 64-bit (`x86_64`) Windows. This provides modern memory protections (High-Entropy ASLR across a 128 TB address space and hardware DEP) to safeguard unencrypted text in RAM, alongside native 64-bit cryptographic instruction execution.
+* **Standalone Release Packaging**: Automated CI/CD pipelines producing completely standalone, static binaries (`encryptpad.exe` and `encryptcli.exe`) with zero floating runtime DLL dependencies.
 
-### Benefits of the 64-Bit Move
-* **High-Entropy ASLR & Memory Defense**: On 32-bit Windows, Address Space Layout Randomization (ASLR) is limited to a 2 GB virtual address space with only 8–14 bits of entropy (~256 to 16,384 locations), leaving in-memory structures susceptible to brute-forcing. 64-bit architecture expands the virtual address space to 128 TB with 33+ bits of entropy, dramatically hardening the process against Return-Oriented Programming (ROP) and memory inspection attacks while sensitive plaintext is loaded in RAM.
-* **Cryptographic & Instruction Pipeline Optimization**: 64-bit operations (such as SHA-512, Botan constant-time multiplexers, and 64-bit integer arithmetic) execute natively in single CPU instructions rather than requiring multi-word emulation and carry-flag propagation.
-* **Register-Based Calling Conventions (x86_64 ABI)**: Function parameters and cryptographic keys are passed primarily via CPU registers (`RCX`, `RDX`, `R8`, `R9`) rather than continually spilled and pushed to the stack frame, reducing the exposure of secrets in stack memory.
-* **Hardware-Enforced Execution Protections**: Native support for 64-bit hardware Data Execution Prevention (DEP) and Control Flow Guard (CFG).
+> For an in-depth security analysis comparing 32-bit and 64-bit memory defenses, binary sizes, and cryptographic internals, see [docs/security_and_architecture.md](docs/security_and_architecture.md).
 
 ## Table of Contents
 
-* [Key Differences from Upstream & 64-Bit Benefits](#key-differences-from-upstream--64-bit-benefits)
+* [Key Differences from Upstream](#key-differences-from-upstream)
 * [Features](#features)
 * [Supported platforms](#supported-platforms)
 * [Why use EncryptPad?](#why-use-encryptpad)
