@@ -32,11 +32,14 @@ LIBS += %{ldflags}
 
 win32 {
     CONFIG += no_lflags_merge
+    static: QTPLUGIN += qwindows qwindowsvistastyle
     static: QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
     static: LIBS += -L$$[QT_INSTALL_PLUGINS]/platforms -L/ucrt64/qt6-static/share/qt6/plugins/platforms -L/ucrt64/qt6-static/plugins/platforms
+    static: LIBS += -L$$[QT_INSTALL_PLUGINS]/styles -L/ucrt64/qt6-static/share/qt6/plugins/styles -L/ucrt64/qt6-static/plugins/styles
     static: LIBS += -L$$[QT_INSTALL_PLUGINS]/imageformats -L/ucrt64/qt6-static/share/qt6/plugins/imageformats -L/ucrt64/qt6-static/plugins/imageformats
+    static: LIBS += -L$$[QT_INSTALL_PLUGINS]/iconengines -L/ucrt64/qt6-static/share/qt6/plugins/iconengines -L/ucrt64/qt6-static/plugins/iconengines
     static: LIBS += -lharfbuzz -lgraphite2 -lfreetype -lpng16 -ljpeg -lzstd -lbrotlidec -lbrotlicommon -lpcre2-16
-    static: LIBS += -lws2_32 -lcrypt32 -liphlpapi -lnetapi32 -luserenv -lversion -luxtheme -ldwmapi -lwinmm -limm32 -lOleAut32 -lole32 -lRpcrt4 -lSecur32 -lwtsapi32 -lshlwapi -ldxgi -ld3d11 -lsetupapi -lcfgmgr32
+    static: LIBS += -ldwrite -ld2d1 -lusp10 -lws2_32 -lcrypt32 -liphlpapi -lnetapi32 -luserenv -lversion -luxtheme -ldwmapi -lwinmm -limm32 -lOleAut32 -lole32 -lRpcrt4 -lSecur32 -lwtsapi32 -lshlwapi -ldxgi -ld3d11 -lsetupapi -lcfgmgr32
 }
 
 QMAKE_CXXFLAGS += -DFAKEVIM_STATIC_DEFINE
@@ -75,6 +78,23 @@ QMAKE_CXXFLAGS += -D_FILE_OFFSET_BITS=64
 INCLUDEPATH += $$PROJ/build/include
 INCLUDEPATH += $$PROJ/deps/plog/include
 INCLUDEPATH += $$PROJ/deps/tinyexpr
+
+win32 {
+    INCLUDEPATH += \
+        /ucrt64/qt6-static/include/qt6 \
+        /ucrt64/qt6-static/include/qt6/QtCore \
+        /ucrt64/qt6-static/include/qt6/QtGui \
+        /ucrt64/qt6-static/include/qt6/QtWidgets \
+        /ucrt64/qt6-static/include/qt6/QtPrintSupport \
+        /ucrt64/qt6-static/include/qt6/QtSvg \
+        /ucrt64/qt6-static/include \
+        /ucrt64/include/qt6 \
+        /ucrt64/include/qt6/QtCore \
+        /ucrt64/include/qt6/QtGui \
+        /ucrt64/include/qt6/QtWidgets \
+        /ucrt64/include/qt6/QtPrintSupport \
+        /ucrt64/include/qt6/QtSvg
+}
 
 SOURCES += \
     application.cpp \
