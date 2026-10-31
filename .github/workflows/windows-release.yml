@@ -70,17 +70,7 @@ jobs:
           ls -la /ucrt64/qt6-static/bin/
 
           # 2. Configure qt.conf so qmake in qt6-static can resolve relative paths
-          cat << 'EOF' > /ucrt64/qt6-static/bin/qt.conf
-[Paths]
-Prefix = ..
-ArchData = share/qt6
-Data = share/qt6
-Headers = include/qt6
-Libraries = lib
-LibraryExecutables = share/qt6/bin
-Binaries = bin
-Plugins = share/qt6/plugins
-EOF
+          echo -e "[Paths]\nPrefix = ..\nArchData = share/qt6\nData = share/qt6\nHeaders = include/qt6\nLibraries = lib\nLibraryExecutables = share/qt6/bin\nBinaries = bin\nPlugins = share/qt6/plugins" > /ucrt64/qt6-static/bin/qt.conf
 
           # 3. Ensure headers, mkspecs, and plugins are accessible in both standard and isolated paths
           if [ -d /ucrt64/qt6-static/include/qt6 ]; then
