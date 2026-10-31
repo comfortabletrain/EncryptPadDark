@@ -41,6 +41,19 @@ jobs:
             mingw-w64-ucrt-x86_64-bzip2
             mingw-w64-ucrt-x86_64-python
             mingw-w64-ucrt-x86_64-pkg-config
+            mingw-w64-ucrt-x86_64-libwebp
+            mingw-w64-ucrt-x86_64-libdeflate
+            mingw-w64-ucrt-x86_64-jbigkit
+            mingw-w64-ucrt-x86_64-lerc
+            mingw-w64-ucrt-x86_64-libtiff
+            mingw-w64-ucrt-x86_64-libjpeg-turbo
+            mingw-w64-ucrt-x86_64-libpng
+            mingw-w64-ucrt-x86_64-freetype
+            mingw-w64-ucrt-x86_64-harfbuzz
+            mingw-w64-ucrt-x86_64-brotli
+            mingw-w64-ucrt-x86_64-zstd
+            mingw-w64-ucrt-x86_64-pcre2
+            mingw-w64-ucrt-x86_64-xz
 
       - name: Run Unit Tests
         shell: msys2 {0}
@@ -90,6 +103,10 @@ jobs:
           if [ -d /ucrt64/qt6-static/share/qt6/plugins ]; then
             mkdir -p /ucrt64/qt6-static/plugins
             cp -rn /ucrt64/qt6-static/share/qt6/plugins/* /ucrt64/qt6-static/plugins/ || true
+          fi
+          if [ -d /ucrt64/lib ]; then
+            mkdir -p /ucrt64/qt6-static/lib
+            cp -rn /ucrt64/lib/*.a /ucrt64/qt6-static/lib/ 2>/dev/null || true
           fi
 
           export PATH="/ucrt64/qt6-static/bin:/ucrt64/share/qt6/bin:/ucrt64/bin:$PATH"
